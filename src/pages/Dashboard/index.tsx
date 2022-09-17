@@ -16,7 +16,7 @@ export function Dashboard() {
 
       <div className="user-name">
         <div>
-          <h2>Olá, grupo 1</h2>
+          <h2>Olá, grupo 1!</h2>
         </div>
       </div>
       <div className="content"></div>
