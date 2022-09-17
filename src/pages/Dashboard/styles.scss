@@ -1,0 +1,39 @@
+.dashboard-header {
+  width: 100%;
+  padding: 24px 0;
+
+  border-bottom: 1px solid #e2e2e2;
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: auto;
+    max-width: 1500px;
+    padding: 0 32px;
+
+    h1 {
+      span {
+        background: linear-gradient(97.78deg, #485bff 40.51%, #ff59f8 101.91%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 13px 58px;
+      background: #835afd;
+      border-radius: 8px;
+      color: #fff;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
