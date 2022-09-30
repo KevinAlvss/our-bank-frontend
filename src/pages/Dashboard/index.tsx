@@ -17,6 +17,7 @@ export function Dashboard() {
       <div className="user-name">
         <div>
           <h2>Olá, grupo 1!</h2>
+          <p>Número da conta: 12345</p>
         </div>
       </div>
       <div className="content"></div>

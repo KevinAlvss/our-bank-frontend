@@ -15,7 +15,7 @@
 
     h1 {
       span {
-        background: linear-gradient(97.78deg, #485bff 40.51%, #ff59f8 101.91%);
+        background: linear-gradient(97.78deg, #e7344c 40.51%, #bd1b31 101.91%);
         background-clip: text;
         -webkit-text-fill-color: transparent;
       }
@@ -26,7 +26,7 @@
       justify-content: center;
       align-items: center;
       padding: 13px 58px;
-      background: #835afd;
+      background: #e7344c;
       border-radius: 8px;
       color: #fff;
       transition: all 0.2s ease-in-out;
@@ -44,8 +44,7 @@
 
   div {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
 
     margin: auto;
     max-width: 1500px;
@@ -53,6 +52,11 @@
 
     h1 {
       font-size: 24px;
+    }
+
+    p {
+      font-size: 20px;
+      font-weight: 500;
     }
   }
 }
