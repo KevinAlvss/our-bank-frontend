@@ -21,6 +21,36 @@ export function Dashboard() {
         </div>
       </div>
       <div className="content"></div>
+
+      <div className="first-line">
+        <div className="first-row-first-line">
+          <div className="saldo">
+            <h3>Meu Saldo</h3>
+            <div className="saldo-shape"></div>
+          </div>
+          <div className="deposito">
+            <h3>Depósito</h3>
+            <div className="deposito-shape"></div>
+          </div>
+        </div>
+        <div className="second-row-first-line">
+          <div className="cartao">
+            <h3>Meu cartão</h3>
+            <div className="cartao-shape"></div>
+          </div>
+        </div>
+      </div>
+
+      <div className="second-line">
+        <div className="nova-transferencia">
+          <h3>Nova transferência</h3>
+          <div className="nova-transferencia-shape"></div>
+        </div>
+        <div className="ver-transferencia">
+          <h3>Minhas transferências</h3>
+          <div className="ver-transferencia-shape"></div>
+        </div>
+      </div>
     </div>
   );
 }
