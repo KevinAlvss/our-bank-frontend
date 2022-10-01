@@ -6,8 +6,6 @@
 
 body {
   background-color: #f8f8f8;
-  font-family: "Roboto", sans-serif;
-  color: #737380;
 
   h1,
   h2 {
@@ -19,4 +17,27 @@ body {
     text-decoration: none;
     color: unset;
   }
+}
+
+input,
+button,
+body {
+  font-family: "Roboto", sans-serif;
+  color: #737380;
+}
+
+input {
+  background: #fefefe;
+  border: 1px solid rgba(115, 115, 128, 0.33);
+  border-radius: 8px;
+  font-size: 20px;
+  padding: 0 20px;
+}
+
+button {
+  border: none;
+  color: #fff;
+  background-color: #e7344c;
+  border-radius: 8px;
+  font-size: 20px;
 }

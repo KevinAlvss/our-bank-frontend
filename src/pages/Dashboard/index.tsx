@@ -37,7 +37,12 @@ export function Dashboard() {
           </div>
           <div className="deposito">
             <h3>Depósito</h3>
-            <div className="deposito-shape"></div>
+            <div className="deposito-shape">
+              <span>Valor do depósito</span>
+              <input type={"number"} min={"0"} max={"99999"} />
+
+              <button>Depositar</button>
+            </div>
           </div>
         </div>
         <div className="second-row-first-line">
