@@ -26,7 +26,14 @@ export function Dashboard() {
         <div className="first-row-first-line">
           <div className="saldo">
             <h3>Meu Saldo</h3>
-            <div className="saldo-shape"></div>
+            <div className="saldo-shape">
+              <span>R$ 3.456,78</span>
+              <select className="select-moeda">
+                <option value="Real Brasileiro">Real Brasileiro</option>
+                <option value="Dolár Americano">Dolár Americano</option>
+                <option value="Bitcoin">Bitcoin</option>
+              </select>
+            </div>
           </div>
           <div className="deposito">
             <h3>Depósito</h3>
