@@ -56,7 +56,19 @@ export function Dashboard() {
       <div className="second-line">
         <div className="nova-transferencia">
           <h3>Nova transferência</h3>
-          <div className="nova-transferencia-shape"></div>
+          <div className="nova-transferencia-shape">
+            <div className="input-wrapper">
+              <div className="input-box">
+                <span>Numero da conta do destinatário</span>
+                <input type={"number"} min={"0"} max={"99999"} />
+              </div>
+              <div className="input-box">
+                <span>Valor da transferência</span>
+                <input type={"number"} min={"0"} max={"99999"} />
+              </div>
+            </div>
+            <button>Tranferir</button>
+          </div>
         </div>
         <div className="ver-transferencia">
           <h3>Minhas transferências</h3>
