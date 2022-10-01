@@ -40,4 +40,11 @@ button {
   background-color: #e7344c;
   border-radius: 8px;
   font-size: 20px;
+  cursor: pointer;
+
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
