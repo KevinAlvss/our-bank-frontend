@@ -187,6 +187,115 @@
         box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.04);
         border-radius: 8px;
         flex: 1;
+        padding: 30px 42px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .cartao-desenho {
+          width: 100%;
+          height: 250px;
+          background: linear-gradient(
+            103.92deg,
+            #e7344c -1.08%,
+            #bd1b31 95.52%
+          );
+          box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.04);
+          border-radius: 8px;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          padding: 30px 30px 15px 30px;
+
+          * {
+            color: #fff;
+            font-family: "Poppins", sans-serif;
+          }
+
+          .header-cartao {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .icons-cartao {
+              display: flex;
+              align-items: center;
+
+              .bandeira {
+                display: flex;
+                align-items: center;
+                position: relative;
+
+                .lado-um {
+                  position: absolute;
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                  left: -120px;
+
+                  background: #eb001b;
+                  mix-blend-mode: hard-light;
+                }
+
+                .lado-dois {
+                  position: absolute;
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                  left: -100px;
+
+                  background: #f79e1b;
+                  mix-blend-mode: hard-light;
+                }
+              }
+
+              .aproximacao {
+                img {
+                  transform: rotate(90deg);
+                  width: 40px;
+                  height: 40px;
+                }
+              }
+            }
+          }
+
+          .footer-cartao {
+            display: flex;
+            flex-direction: column;
+
+            .numero-cartao {
+              font-weight: 700;
+              font-size: 30px;
+              margin-bottom: 15px;
+            }
+
+            .dados-cartao {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              width: 100%;
+
+              .nome-cliente {
+                font-weight: 700;
+                font-size: 20px;
+              }
+            }
+
+            .codigos-cartao {
+              font-size: 20px;
+
+              .cvv {
+                margin-right: 20px;
+              }
+            }
+          }
+        }
+
+        button {
+          height: 50px;
+        }
       }
     }
   }

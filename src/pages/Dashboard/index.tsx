@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import "./styles.scss";
 
+import wifiIcon from "../../images/wifi.png";
+
 export function Dashboard() {
   return (
     <div className="container">
@@ -48,7 +50,36 @@ export function Dashboard() {
         <div className="second-row-first-line">
           <div className="cartao">
             <h3>Meu cartão</h3>
-            <div className="cartao-shape"></div>
+            <div className="cartao-shape">
+              <div className="cartao-desenho">
+                <div className="header-cartao">
+                  <h2>OurBank</h2>
+
+                  <div className="icons-cartao">
+                    <div className="bandeira">
+                      <div className="lado-um"></div>
+                      <div className="lado-dois"></div>
+                    </div>
+                    <div className="aproximacao">
+                      <img src={wifiIcon} alt={"aproximação"} />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="footer-cartao">
+                  <span className="numero-cartao">1234 1234 1234 1234</span>
+                  <div className="dados-cartao">
+                    <span className="nome-cliente">Kevin Alves</span>
+                    <div className="codigos-cartao">
+                      <span className="cvv">999</span>
+                      <span className="data-validade">10/27</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button>Desativar cartão</button>
+              <button>Desativar aproximação</button>
+            </div>
           </div>
         </div>
       </div>
