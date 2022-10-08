@@ -1,9 +1,72 @@
+import { useEffect, useState } from "react";
+import CurrencyInput from "react-currency-input-field";
+
 import { Link } from "react-router-dom";
 import "./styles.scss";
 
 import wifiIcon from "../../images/wifi.png";
 
 export function Dashboard() {
+  const [dinheiro, setDinheiro] = useState(3456.78);
+  const [dinheiroExibido, setDinheiroExibido] = useState("");
+
+  const [moedaSelecionada, setMoedaSelecionada] = useState("BRL");
+
+  const [deposito, setDeposito] = useState("");
+
+  function depositar() {
+    setDinheiro(dinheiro + Number(deposito.replace(/\D/g, "")));
+  }
+
+  useEffect(() => {
+    function converterParaBRL() {
+      setDinheiroExibido(
+        dinheiro.toLocaleString("pt-br", {
+          style: "currency",
+          currency: "BRL",
+        })
+      );
+    }
+
+    function coverterParaUSD() {
+      let dolar = dinheiro / 5.21;
+
+      setDinheiroExibido(
+        dolar.toLocaleString("us", {
+          style: "currency",
+          currency: "USD",
+        })
+      );
+    }
+
+    function coverterParaBTC() {
+      let bitcoin = dinheiro / 101856.53;
+
+      setDinheiroExibido(
+        "BTC " +
+          bitcoin.toLocaleString("pt-br", {
+            style: "decimal",
+          })
+      );
+    }
+
+    function mudarMoeda(moeda: string) {
+      switch (moeda) {
+        case "BRL":
+          converterParaBRL();
+          break;
+        case "USD":
+          coverterParaUSD();
+          break;
+        case "BTC":
+          coverterParaBTC();
+          break;
+      }
+    }
+
+    mudarMoeda(moedaSelecionada);
+  }, [moedaSelecionada, dinheiro]);
+
   return (
     <div className="container">
       <div className="dashboard-header">
@@ -29,11 +92,16 @@ export function Dashboard() {
           <div className="saldo">
             <h3>Meu Saldo</h3>
             <div className="saldo-shape">
-              <span>R$ 3.456,78</span>
-              <select className="select-moeda">
-                <option value="Real Brasileiro">Real Brasileiro</option>
-                <option value="Dolár Americano">Dolár Americano</option>
-                <option value="Bitcoin">Bitcoin</option>
+              <span>{dinheiroExibido}</span>
+              <select
+                className="select-moeda"
+                onChange={(e) => {
+                  setMoedaSelecionada(e.target.value);
+                }}
+              >
+                <option value="BRL">Real Brasileiro</option>
+                <option value="USD">Dolár Americano</option>
+                <option value="BTC">Bitcoin</option>
               </select>
             </div>
           </div>
@@ -41,9 +109,19 @@ export function Dashboard() {
             <h3>Depósito</h3>
             <div className="deposito-shape">
               <span>Valor do depósito</span>
-              <input type={"number"} min={"0"} max={"99999"} />
-
-              <button>Depositar</button>
+              {/* dar um jeito disso aqui reconhecer centavos 
+              atualmente ele converte centavos para real no momento de depositar
+              ele retira a virgula e ignora os zeros a esquerda
+              exemplo = R$ 0,1 => 1 */}
+              <CurrencyInput
+                intlConfig={{ locale: "pt-br", currency: "BRL" }}
+                allowNegativeValue={false}
+                maxLength={5}
+                onChange={(e) => {
+                  setDeposito(e.target.value);
+                }}
+              />
+              <button onClick={depositar}>Depositar</button>
             </div>
           </div>
         </div>
