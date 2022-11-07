@@ -1,4 +1,4 @@
-.dashboard-header {
+.dashboardHeader {
   width: 100%;
   padding: 24px 0;
 
@@ -38,7 +38,7 @@
   }
 }
 
-.user-name {
+.userName {
   width: 100%;
   margin-top: 60px;
 
@@ -61,7 +61,7 @@
   }
 }
 
-.first-line {
+.firstLine {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -69,7 +69,7 @@
   padding: 0 32px;
   margin: 30px auto auto auto;
 
-  .first-row-first-line {
+  .firstRowFirstLine {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -88,7 +88,7 @@
         margin-bottom: 15px;
       }
 
-      .saldo-shape {
+      .saldoShape {
         background: #fefefe;
         box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.04);
         border-radius: 8px;
@@ -104,7 +104,7 @@
           font-size: 36px;
         }
 
-        .select-moeda {
+        .selectMoeda {
           padding: 20px 10px;
           border: 1px solid #e8eaed;
           background: #fefefe;
@@ -135,7 +135,7 @@
         margin-bottom: 15px;
       }
 
-      .deposito-shape {
+      .depositoShape {
         background: #fefefe;
         box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.04);
         border-radius: 8px;
@@ -166,7 +166,7 @@
     }
   }
 
-  .second-row-first-line {
+  .secondRowFirstLine {
     height: max-content;
 
     .cartao {
@@ -182,7 +182,7 @@
         margin-bottom: 15px;
       }
 
-      .cartao-shape {
+      .cartaoShape {
         background: #fefefe;
         box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.04);
         border-radius: 8px;
@@ -192,7 +192,7 @@
         flex-direction: column;
         justify-content: space-between;
 
-        .cartao-desenho {
+        .cartaoDesenho {
           width: 100%;
           height: 250px;
           background: linear-gradient(
@@ -214,12 +214,12 @@
             font-family: "Poppins", sans-serif;
           }
 
-          .header-cartao {
+          .headerCartao {
             display: flex;
             align-items: center;
             justify-content: space-between;
 
-            .icons-cartao {
+            .iconsCartao {
               display: flex;
               align-items: center;
 
@@ -228,7 +228,7 @@
                 align-items: center;
                 position: relative;
 
-                .lado-um {
+                .ladoUm {
                   position: absolute;
                   width: 40px;
                   height: 40px;
@@ -239,7 +239,7 @@
                   mix-blend-mode: hard-light;
                 }
 
-                .lado-dois {
+                .ladoDois {
                   position: absolute;
                   width: 40px;
                   height: 40px;
@@ -261,29 +261,29 @@
             }
           }
 
-          .footer-cartao {
+          .footerCartao {
             display: flex;
             flex-direction: column;
 
-            .numero-cartao {
+            .numeroCartao {
               font-weight: 700;
               font-size: 30px;
               margin-bottom: 15px;
             }
 
-            .dados-cartao {
+            .dadosCartao {
               display: flex;
               align-items: center;
               justify-content: space-between;
               width: 100%;
 
-              .nome-cliente {
+              .nomeCliente {
                 font-weight: 700;
                 font-size: 20px;
               }
             }
 
-            .codigos-cartao {
+            .codigosCartao {
               font-size: 20px;
 
               .cvv {
@@ -301,7 +301,7 @@
   }
 }
 
-.second-line {
+.secondLine {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -310,7 +310,7 @@
   padding: 0 32px;
   margin: 80px auto 120px auto;
 
-  .nova-transferencia {
+  .novaTransferencia {
     height: 400px;
     width: 650px;
 
@@ -321,7 +321,7 @@
       margin-bottom: 15px;
     }
 
-    .nova-transferencia-shape {
+    .novaTransferenciaShape {
       background: #fefefe;
       box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.04);
       border-radius: 8px;
@@ -332,12 +332,12 @@
       justify-content: space-between;
       padding: 30px 42px;
 
-      .input-wrapper {
+      .inputWrapper {
         display: flex;
         flex-direction: column;
         gap: 30px;
 
-        .input-box {
+        .inputBox {
           display: flex;
           flex-direction: column;
 
@@ -359,7 +359,7 @@
     }
   }
 
-  .ver-transferencia {
+  .verTransferencia {
     height: 400px;
     width: 650px;
 
@@ -370,7 +370,7 @@
       margin-bottom: 15px;
     }
 
-    .ver-transferencia-shape {
+    .verTransferenciaShape {
       background: #fefefe;
       box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.04);
       border-radius: 8px;

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import CurrencyInput from "react-currency-input-field";
 
 import { Link } from "react-router-dom";
-import "./styles.scss";
+import styles from "./styles.module.scss";
 
 import wifiIcon from "../../images/wifi.png";
 
@@ -68,8 +68,8 @@ export function Dashboard() {
   }, [moedaSelecionada, dinheiro]);
 
   return (
-    <div className="container">
-      <div className="dashboard-header">
+    <div className={styles.container}>
+      <div className={styles.dashboardHeader}>
         <div>
           <h1>
             Our <span>Bank</span>
@@ -79,22 +79,22 @@ export function Dashboard() {
         </div>
       </div>
 
-      <div className="user-name">
+      <div className={styles.userName}>
         <div>
           <h2>Olá, grupo 1!</h2>
           <p>Número da conta: 12345</p>
         </div>
       </div>
-      <div className="content"></div>
+      <div className={styles.content}></div>
 
-      <div className="first-line">
-        <div className="first-row-first-line">
-          <div className="saldo">
+      <div className={styles.firstLine}>
+        <div className={styles.firstRowFirstLine}>
+          <div className={styles.saldo}>
             <h3>Meu Saldo</h3>
-            <div className="saldo-shape">
+            <div className={styles.saldoShape}>
               <span>{dinheiroExibido}</span>
               <select
-                className="select-moeda"
+                className={styles.selectMoeda}
                 onChange={(e) => {
                   setMoedaSelecionada(e.target.value);
                 }}
@@ -105,9 +105,9 @@ export function Dashboard() {
               </select>
             </div>
           </div>
-          <div className="deposito">
+          <div className={styles.deposito}>
             <h3>Depósito</h3>
-            <div className="deposito-shape">
+            <div className={styles.depositoShape}>
               <span>Valor do depósito</span>
               {/* dar um jeito disso aqui reconhecer centavos 
               atualmente ele converte centavos para real no momento de depositar
@@ -125,32 +125,34 @@ export function Dashboard() {
             </div>
           </div>
         </div>
-        <div className="second-row-first-line">
-          <div className="cartao">
+        <div className={styles.secondRowFirstLine}>
+          <div className={styles.cartao}>
             <h3>Meu cartão</h3>
-            <div className="cartao-shape">
-              <div className="cartao-desenho">
-                <div className="header-cartao">
+            <div className={styles.cartaoShape}>
+              <div className={styles.cartaoDesenho}>
+                <div className={styles.headerCartao}>
                   <h2>OurBank</h2>
 
-                  <div className="icons-cartao">
-                    <div className="bandeira">
-                      <div className="lado-um"></div>
-                      <div className="lado-dois"></div>
+                  <div className={styles.iconsCartao}>
+                    <div className={styles.andeira}>
+                      <div className={styles.ladoUm}></div>
+                      <div className={styles.ladoDois}></div>
                     </div>
-                    <div className="aproximacao">
+                    <div className={styles.aproximacao}>
                       <img src={wifiIcon} alt={"aproximação"} />
                     </div>
                   </div>
                 </div>
 
-                <div className="footer-cartao">
-                  <span className="numero-cartao">1234 1234 1234 1234</span>
-                  <div className="dados-cartao">
-                    <span className="nome-cliente">Kevin Alves</span>
-                    <div className="codigos-cartao">
-                      <span className="cvv">999</span>
-                      <span className="data-validade">10/27</span>
+                <div className={styles.footerCartao}>
+                  <span className={styles.numeroCartao}>
+                    1234 1234 1234 1234
+                  </span>
+                  <div className={styles.dadosCartao}>
+                    <span className={styles.nomeCliente}>Kevin Alves</span>
+                    <div className={styles.codigosCartao}>
+                      <span className={styles.cvv}>999</span>
+                      <span className={styles.dataValidade}>10/27</span>
                     </div>
                   </div>
                 </div>
@@ -162,16 +164,16 @@ export function Dashboard() {
         </div>
       </div>
 
-      <div className="second-line">
-        <div className="nova-transferencia">
+      <div className={styles.secondLine}>
+        <div className={styles.novaTransferencia}>
           <h3>Nova transferência</h3>
-          <div className="nova-transferencia-shape">
-            <div className="input-wrapper">
-              <div className="input-box">
+          <div className={styles.novaTransferenciaShape}>
+            <div className={styles.inputWrapper}>
+              <div className={styles.inputBox}>
                 <span>Numero da conta do destinatário</span>
                 <input type={"number"} min={"0"} max={"99999"} />
               </div>
-              <div className="input-box">
+              <div className={styles.inputBox}>
                 <span>Valor da transferência</span>
                 <input type={"number"} min={"0"} max={"99999"} />
               </div>
@@ -179,9 +181,9 @@ export function Dashboard() {
             <button>Tranferir</button>
           </div>
         </div>
-        <div className="ver-transferencia">
+        <div className={styles.verTransferencia}>
           <h3>Minhas transferências</h3>
-          <div className="ver-transferencia-shape"></div>
+          <div className={styles.verTransferenciaShape}></div>
         </div>
       </div>
     </div>

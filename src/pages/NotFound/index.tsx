@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
 
-import "./styles.scss";
+import styles from "./styles.module.scss";
 import notFoundImage from "../../images/not-found.png";
 
 export function NotFound() {
   return (
-    <div className="container">
-      <div className="image">
+    <div className={styles.container}>
+      <div className={styles.image}>
         <img src={notFoundImage} alt="not-found" />
       </div>
-      <div className="content">
-        <div className="title-box">
+      <div className={styles.content}>
+        <div className={styles.titleBox}>
           <h1>404...</h1>
           <h3>Repito, 404. Câmbio!</h3>
         </div>
-        <div className="content-box">
+        <div className={styles.contentBox}>
           <h2>ESTAÇÃO RESPONDE:</h2>
 
           <p>
