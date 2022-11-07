@@ -1,5 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { CreateAccount, Dashboard, EditAccount, Initial, Login } from "./pages";
+import {
+  CreateAccount,
+  Dashboard,
+  EditAccount,
+  Initial,
+  Login,
+  NotFound,
+} from "./pages";
 
 export function Router() {
   return (
@@ -10,6 +17,7 @@ export function Router() {
         <Route path="/create-account" element={<CreateAccount />} />
         <Route path="/edit-account" element={<EditAccount />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
