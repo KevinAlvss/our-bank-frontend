@@ -116,7 +116,7 @@ export function Dashboard() {
               <CurrencyInput
                 intlConfig={{ locale: "pt-br", currency: "BRL" }}
                 allowNegativeValue={false}
-                maxLength={5}
+                maxLength={9}
                 onChange={(e) => {
                   setDeposito(e.target.value);
                 }}
