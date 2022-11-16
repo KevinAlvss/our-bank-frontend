@@ -134,7 +134,7 @@ export function Dashboard() {
                   <h2>OurBank</h2>
 
                   <div className={styles.iconsCartao}>
-                    <div className={styles.andeira}>
+                    <div className={styles.bandeira}>
                       <div className={styles.ladoUm}></div>
                       <div className={styles.ladoDois}></div>
                     </div>
