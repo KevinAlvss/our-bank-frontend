@@ -1,3 +1,10 @@
+import { Banner } from "../../components/Banner";
+import styles from "./styles.module.scss";
+
 export function CreateAccount() {
-  return <h1>Create Account Page</h1>;
+  return (
+    <div className={styles.container}>
+      <Banner />
+    </div>
+  );
 }
