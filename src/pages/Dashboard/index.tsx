@@ -183,7 +183,41 @@ export function Dashboard() {
         </div>
         <div className={styles.verTransferencia}>
           <h3>Minhas transferências</h3>
-          <div className={styles.verTransferenciaShape}></div>
+          <div className={styles.verTransferenciaShape}>
+            <table>
+              <thead>
+                <tr>
+                  <th>Destinatário</th>
+                  <th>Descrição</th>
+                  <th>Data</th>
+                  <th>Valor</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Fulano da Silva</td>
+                  <td>Bla bla bla</td>
+                  <td>17/11/2022</td>
+                  <td className={styles.transacaoValor}>R$ 18,90</td>
+                </tr>
+                <tr>
+                  <td>Fulano da Silva</td>
+                  <td>Bla bla bla</td>
+                  <td>17/11/2022</td>
+                  <td className={styles.transacaoValor}>R$ 18,90</td>
+                </tr>
+                <tr>
+                  <td>Fulano da Silva</td>
+                  <td>Bla bla bla</td>
+                  <td>17/11/2022</td>
+                  <td className={styles.transacaoValor}>R$ 18,90</td>
+                </tr>
+              </tbody>
+            </table>
+            <div className={styles.linkTransacao}>
+              <Link to={"/transfers"}>Ver tudo</Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ import {
   Initial,
   Login,
   NotFound,
+  Transfers,
 } from "./pages";
 
 export function Router() {
@@ -17,6 +18,7 @@ export function Router() {
         <Route path="/create-account" element={<CreateAccount />} />
         <Route path="/edit-account" element={<EditAccount />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/transfers" element={<Transfers />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
