@@ -1,0 +1,123 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: start;
+    font-family: "Poppins", sans-serif;
+
+  
+
+    h1 {
+        font-size: 36px;
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 15vh;
+
+       
+        span {
+            background: linear-gradient(97.78deg, #e7344c 40.51%, #bd1b31 101.91%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+        }
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 3vh;
+        font-size: 26px;
+
+    }
+
+    
+    .content{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 460px;
+
+        .delete{
+            margin-bottom: 5vh;
+        }
+
+        .voltar {
+            
+            padding: 10px 0;
+            width: 450px;
+            align-items: center;
+          }
+
+          .deletar {
+            margin-top: 10px;
+            padding: 10px 0;
+            width: 450px;
+            align-items: center;
+            background: #fff;
+            border: 1px solid #e7344c;
+            color: #e7344c;
+          }
+        }
+    
+
+    .sidebar{
+        display: flex;
+        flex-direction: column;
+        background: #efeeee9e;
+        width: 445px;
+        height: 100%;
+        margin-right: 25%;
+        padding: 50px 0;
+        
+
+        .nav{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 30px;
+            margin-left: 110px;
+            
+        }
+
+        a{     
+            color: #000;
+            font-weight: bold;
+            font-size: 20px;
+            
+        }
+
+        img{
+            
+            margin-right: 10px;
+            height: 2rem;
+            border-radius: 8px;
+        }
+
+        .botao {
+            margin-top: 600px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+            a {
+                width: 164px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 8px 40px;
+                background: #e7344c;
+                border-radius: 8px;
+                color: #fff;
+                transition: all 0.2s ease-in-out;
+                font-size: 16px;
+          
+                &:hover {
+                  opacity: 0.8;
+                }
+              }
+            
+            }
+    }
+
+
+           
+    }
