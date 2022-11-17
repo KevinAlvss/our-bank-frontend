@@ -5,6 +5,8 @@ import {
   EditAccount,
   Initial,
   Login,
+  MyAccount,
+  DeleteAccount,
   NotFound,
 } from "./pages";
 
@@ -16,6 +18,8 @@ export function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/create-account" element={<CreateAccount />} />
         <Route path="/edit-account" element={<EditAccount />} />
+        <Route path="/my-account" element={<MyAccount />} />
+        <Route path="/delete-account" element={<DeleteAccount />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

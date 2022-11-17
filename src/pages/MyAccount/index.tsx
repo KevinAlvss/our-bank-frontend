@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import barra from "../../images/barra.svg";
 import { title } from "process";
 
-export function EditAccount() {
+export function MyAccount() {
   // const camposForms[]
 
   const sidebar = [
@@ -32,60 +32,60 @@ export function EditAccount() {
             Our <span>Bank</span>
           </h1>
         </div>
-        <h2>Alterar minha conta</h2>
+        <h2>Minha conta</h2>
 
         <div className={styles.campos}>
           <div className={styles.box1}>
             <span>Nome completo</span>
-            <input type="text" name="nome" id="nome" />
+            <input type="text" name="nome" id="nome" disabled/>
           </div>
 
           <div className={styles.box2}>
             <div className={styles.cpf}>
               <span>CPF</span>
-              <input type="number" name="cpf" id="cpf" />
+              <input type="number" name="cpf" id="cpf" disabled/>
             </div>
 
             <div className={styles.data}>
               <span>Data de nascimento</span>
-              <input type="date" name="data" id="data" />
+              <input type="date" name="data" id="data" disabled/>
             </div>
           </div>
 
           <div className={styles.box3}>
             <div className={styles.endereco}>
               <span>Endereço</span>
-              <input type="text" name="endereco" id="endereco" />
+              <input type="text" name="endereco" id="endereco" disabled/>
             </div>
 
             <div className={styles.num}>
               <span>Número</span>
-              <input type="number" name="numero" id="numero" />
+              <input type="number" name="numero" id="numero" disabled/>
             </div>
           </div>
 
           <div className={styles.box2}>
             <div className={styles.cep}>
               <span>CEP</span>
-              <input type="number" name="cep" id="cep" />
+              <input type="number" name="cep" id="cep" disabled/>
             </div>
 
             <div className={styles.data}>
               <span>Complemento</span>
-              <input type="text" name="comp" id="comp" />
+              <input type="text" name="comp" id="comp" disabled/>
             </div>
           </div>
 
           <div className={styles.box1}>
             <span>Email</span>
-            <input type="email" name="email" id="email" />
+            <input type="email" name="email" id="email" disabled/>
           </div>
 
           <div className={styles.box1}>
             <span>Senha</span>
-            <input type="password" name="senha" id="senha" />
+            <input type="password" name="senha" id="senha" disabled/>
           </div>
-          <button className={styles.entrar}>Alterar</button>
+          
         </div>
       </div>
     </div>

@@ -29,7 +29,7 @@ export function CreateAccount() {
               </div>
 
               <div className={styles.data}>
-                <span>Data</span>
+                <span>Data de nascimento</span>
                 <input type="date" name="data" id="data" />
               </div>
             </div>
