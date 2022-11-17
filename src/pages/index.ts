@@ -6,3 +6,4 @@ export { EditAccount } from "./EditAccount";
 export { DeleteAccount } from "./DeleteAccount";
 export { MyAccount } from "./MyAccount";
 export { NotFound } from "./NotFound";
+export { Transfers } from "./Transfers";

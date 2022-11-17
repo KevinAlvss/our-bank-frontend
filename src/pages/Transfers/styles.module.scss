@@ -1,0 +1,174 @@
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  width: 100%;
+  padding: 24px 120px;
+
+  border-bottom: 1px solid #e2e2e2;
+
+  h1 {
+    span {
+      background: linear-gradient(97.78deg, #e7344c 40.51%, #bd1b31 101.91%);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+.content {
+  width: 100%;
+  padding: 24px 120px;
+  display: flex;
+  flex-direction: column;
+
+  table {
+    width: 90%;
+    margin-top: 10px;
+
+    th {
+      padding: 10px 15px;
+      border-bottom: 1px solid #737380;
+      color: #737380;
+      font-weight: 500;
+      text-transform: uppercase;
+      text-align: left;
+      font-size: 20px;
+    }
+
+    td {
+      padding: 10px 15px;
+      border-bottom: 1px solid transparent;
+      color: #8f8f9b;
+      font-size: 18px;
+
+      img {
+        width: 25px;
+      }
+    }
+
+    tbody {
+      tr {
+        .transacaoValor {
+          color: #0f6c00;
+        }
+      }
+    }
+  }
+}
+
+.title {
+  position: relative;
+  margin-left: 20px;
+  line-height: 60px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: #e7344c;
+    width: 10px;
+    height: 100%;
+    left: -20px;
+  }
+}
+
+.voltar {
+  color: #fff;
+  background-color: #e7344c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 40px;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+.modalContainerDelete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  text-align: center;
+
+  .voltarButtonDelete {
+    width: 100%;
+    height: 50px;
+  }
+
+  .deleteButton {
+    width: 100%;
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid #e7344c;
+    color: #e7344c;
+  }
+}
+
+.modalContainerEdit {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+
+  h1 {
+    position: relative;
+    margin-left: 20px;
+    line-height: 60px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: #e7344c;
+      width: 10px;
+      height: 100%;
+      left: -20px;
+    }
+  }
+}
+
+.modalEditContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 15px;
+  margin-top: 30px;
+
+  .inputBox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+
+    input {
+      height: 50px;
+    }
+  }
+
+  .secondLine {
+    display: flex;
+    gap: 10px;
+
+    div:nth-child(2) {
+      width: 50% !important;
+    }
+  }
+}
+
+.buttonBox {
+  display: flex;
+  justify-content: end;
+
+  button {
+    width: 200px;
+    height: 50px;
+  }
+}
