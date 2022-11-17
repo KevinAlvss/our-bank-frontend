@@ -7,9 +7,14 @@ import { useState } from "react";
 
 export function Transfers() {
   const [isOpenDelete, setIsOpenDelete] = useState(false);
+  const [isOpenEdit, setIsOpenEdit] = useState(false);
 
   function handleIsOpenDelete() {
     setIsOpenDelete(!isOpenDelete);
+  }
+
+  function handleIsOpenEdit() {
+    setIsOpenEdit(!isOpenEdit);
   }
   return (
     <>
@@ -39,7 +44,12 @@ export function Transfers() {
                 <td>17/11/2022</td>
                 <td>R$ 18,90</td>
                 <td>
-                  <img src={editPen} alt="editar" />
+                  <img
+                    src={editPen}
+                    alt="editar"
+                    onClick={() => handleIsOpenEdit()}
+                    style={{ cursor: "pointer" }}
+                  />
                 </td>
                 <td>
                   <img
@@ -77,6 +87,39 @@ export function Transfers() {
           >
             Deletar
           </button>
+        </div>
+      </ReactModal>
+      <ReactModal
+        isOpen={isOpenEdit}
+        onRequestClose={handleIsOpenEdit}
+        shouldCloseOnOverlayClick
+        style={{ content: { width: 1000, height: 600, margin: "auto" } }}
+      >
+        <div className={styles.modalContainerEdit}>
+          <h1>Editar Transferência</h1>
+          <div className={styles.modalEditContent}>
+            <div className={styles.inputBox}>
+              <p>Nome do destinatário</p>
+              <input type={"text"} placeholder={"Fulano da Silva"} />
+            </div>
+            <div className={styles.secondLine}>
+              <div className={styles.inputBox}>
+                <p>Numero da conta do destinatário</p>
+                <input type={"text"} placeholder={"12345678-9"} />
+              </div>
+              <div className={styles.inputBox}>
+                <p>Valor da Transferência</p>
+                <input type={"text"} placeholder={"R$ 123,34"} />
+              </div>
+            </div>
+            <div className={styles.inputBox}>
+              <p>Descrição</p>
+              <input type={"text"} placeholder={"Aula de canto"} />
+            </div>
+          </div>
+          <div className={styles.buttonBox}>
+            <button onClick={() => handleIsOpenEdit()}>Confirmar</button>
+          </div>
         </div>
       </ReactModal>
     </>
