@@ -15,7 +15,9 @@ export function Login() {
           <input type={"text"} placeholder="Email" />
           <input type={"password"} placeholder="Senha" />
         </div>
-        <button className={styles.entrar}><Link to={"/dashboard"}>Entrar</Link></button>
+        <Link to={"/dashboard"} className={styles.entrar}>
+          Entrar
+        </Link>
         <p className={styles.criarConta}>
           Não tem uma conta? <Link to={"/create-account"}>Crie agora</Link>
         </p>
