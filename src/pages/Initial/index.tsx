@@ -15,7 +15,7 @@ export function Initial() {
             <Link className={styles.login} to="/login">
               Login
             </Link>
-            <Link to="/edit-account">Crie sua conta</Link>
+            <Link to="/create-account">Crie sua conta</Link>
           </div>
         </div>
       </div>
