@@ -8,6 +8,11 @@ import styles from "./styles.module.scss";
 
 import wifiIcon from "../../images/wifi.png";
 import qrCode from "../../images/qrCode.svg";
+import { Cliente, ClienteService } from "../../services/clienteService";
+import { Conta, ContaService } from "../../services/contaService";
+
+const clienteService = new ClienteService();
+const contaService = new ContaService();
 
 export function Dashboard() {
   const [dinheiro, setDinheiro] = useState(3456.78);
@@ -76,6 +81,24 @@ export function Dashboard() {
     mudarMoeda(moedaSelecionada);
   }, [moedaSelecionada, dinheiro]);
 
+  const [cliente, setCliente] = useState<Cliente>();
+  const [conta, setConta] = useState<Conta>();
+
+  async function fetchCliente() {
+    const response = await clienteService.buscarClientePorId("1");
+    setCliente(response);
+  }
+
+  async function fetchConta() {
+    const response = await contaService.buscarContaPorId("1");
+    setConta(response);
+  }
+
+  useEffect(() => {
+    fetchCliente();
+    fetchConta();
+  }, []);
+
   return (
     <>
       <div className={styles.container}>
@@ -91,8 +114,8 @@ export function Dashboard() {
 
         <div className={styles.userName}>
           <div>
-            <h2>Olá, grupo 1!</h2>
-            <p>Número da conta: 12345</p>
+            <h2>Olá, {cliente?.nome}</h2>
+            <p>Número da conta: {conta?.numConta}</p>
           </div>
         </div>
         <div className={styles.content}></div>
@@ -159,7 +182,9 @@ export function Dashboard() {
                       1234 1234 1234 1234
                     </span>
                     <div className={styles.dadosCartao}>
-                      <span className={styles.nomeCliente}>Kevin Alves</span>
+                      <span className={styles.nomeCliente}>
+                        {cliente?.nome}
+                      </span>
                       <div className={styles.codigosCartao}>
                         <span className={styles.cvv}>999</span>
                         <span className={styles.dataValidade}>10/27</span>
