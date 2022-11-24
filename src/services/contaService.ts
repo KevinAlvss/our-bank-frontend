@@ -5,10 +5,11 @@ const app = axios.create({
 });
 
 export interface Conta {
+  idConta: Number;
   numConta: String;
   codBanco: String;
   agencia: String;
-  saldo: Number;
+  saldo: Number | 0;
   fk_id_cliente: Number;
 }
 
@@ -49,18 +50,30 @@ export class ContaService {
     }
   }
 
-  async realizarTransferencia() {
+  async realizarTransferencia(
+    contaBeneficiario: String,
+    valor: Number,
+    idMinhaConta: Number
+  ) {
     try {
-      const res = await app.put("/conta/transferir");
+      const res = await app.put("/transferir", {
+        contaBeneficiario,
+        valor,
+        idMinhaConta,
+      });
       return res.data;
     } catch (error) {
+      console.log(error);
       throw new Error("cannot put");
     }
   }
 
-  async realizarDeposito() {
+  async realizarDeposito(valor: String, id: String) {
     try {
-      const res = await app.put("/conta/depositar");
+      const res = await app.put("/depositar", {
+        valor,
+        id,
+      });
       return res.data;
     } catch (error) {
       throw new Error("cannot put");

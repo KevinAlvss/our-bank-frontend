@@ -10,26 +10,41 @@ import wifiIcon from "../../images/wifi.png";
 import qrCode from "../../images/qrCode.svg";
 import { Cliente, ClienteService } from "../../services/clienteService";
 import { Conta, ContaService } from "../../services/contaService";
+import { toast } from "react-toastify";
+import App from "../../App";
 
 const clienteService = new ClienteService();
 const contaService = new ContaService();
 
 export function Dashboard() {
-  const [dinheiro, setDinheiro] = useState(3456.78);
+  const [dinheiro, setDinheiro] = useState(0);
   const [dinheiroExibido, setDinheiroExibido] = useState("");
+  const [dinheiroMudou, setDinheiroMudou] = useState(false);
 
   const [moedaSelecionada, setMoedaSelecionada] = useState("BRL");
 
   const [deposito, setDeposito] = useState("");
 
   const [isOpen, setIsOpen] = useState(false);
+  const [cartaoDesativado, setCartaoDesativado] = useState(false);
+  const [aproximacaoDesativada, setAproximacaoDesativada] = useState(false);
 
   function handleIsOpen() {
     setIsOpen(!isOpen);
   }
 
-  function depositar() {
-    setDinheiro(dinheiro + Number(deposito.replace(/\D/g, "")));
+  async function depositar() {
+    if (!deposito) {
+      toast.error("Informe um valor para ser depositado");
+      return;
+    }
+
+    await contaService.realizarDeposito(
+      deposito.replace(/\D/g, ""),
+      String(conta?.idConta)
+    );
+    notify("Deposito realizado com sucesso!");
+    setDinheiroMudou(!dinheiroMudou);
   }
 
   useEffect(() => {
@@ -94,10 +109,36 @@ export function Dashboard() {
     setConta(response);
   }
 
+  const [valorTransferencia, setValorTransferencia] = useState("");
+  const [numeroContaBeneficiario, setNumeroContaBeneficiario] = useState("");
+
+  async function transferir() {
+    if (!valorTransferencia || !numeroContaBeneficiario) {
+      toast.error("Informe todos os parametros necessários!");
+      return;
+    }
+
+    await contaService.realizarDeposito(
+      String(Number(valorTransferencia.replace(/\D/g, "")) * -1),
+      String(conta?.idConta)
+    );
+    notify("Transferencia realizada com sucesso");
+    setDinheiroMudou(!dinheiroMudou);
+    handleIsOpen();
+  }
+
   useEffect(() => {
     fetchCliente();
     fetchConta();
-  }, []);
+  }, [dinheiroMudou]);
+
+  useEffect(() => {
+    setDinheiro(Number(conta?.saldo));
+  }, [conta?.saldo, dinheiroMudou]);
+
+  function notify(mensagem: String) {
+    toast.success(mensagem);
+  }
 
   return (
     <>
@@ -154,7 +195,13 @@ export function Dashboard() {
                     setDeposito(e.target.value);
                   }}
                 />
-                <button onClick={depositar}>Depositar</button>
+                <button
+                  onClick={() => {
+                    depositar();
+                  }}
+                >
+                  Depositar
+                </button>
               </div>
             </div>
           </div>
@@ -192,8 +239,32 @@ export function Dashboard() {
                     </div>
                   </div>
                 </div>
-                <button>Desativar cartão</button>
-                <button>Desativar aproximação</button>
+                <button
+                  onClick={() => {
+                    setCartaoDesativado(!cartaoDesativado);
+                    notify(
+                      cartaoDesativado
+                        ? "Cartão ativado com sucesso"
+                        : "Cartão desativado com sucesso"
+                    );
+                  }}
+                >
+                  {cartaoDesativado ? "Ativar cartão" : "Desativar cartão"}
+                </button>
+                <button
+                  onClick={() => {
+                    setAproximacaoDesativada(!aproximacaoDesativada);
+                    notify(
+                      aproximacaoDesativada
+                        ? "Aproximação ativada com sucesso"
+                        : "Aproximação desativada com sucesso"
+                    );
+                  }}
+                >
+                  {aproximacaoDesativada
+                    ? "Ativar aproximação"
+                    : "Desativar aproximação"}
+                </button>
               </div>
             </div>
           </div>
@@ -206,14 +277,28 @@ export function Dashboard() {
               <div className={styles.inputWrapper}>
                 <div className={styles.inputBox}>
                   <span>Numero da conta do destinatário</span>
-                  <input type={"number"} min={"0"} max={"99999"} />
+                  <input
+                    type={"text"}
+                    onChange={(e) => setNumeroContaBeneficiario(e.target.value)}
+                  />
                 </div>
                 <div className={styles.inputBox}>
                   <span>Valor da transferência</span>
-                  <input type={"number"} min={"0"} max={"99999"} />
+                  <input
+                    type={"number"}
+                    min={"0"}
+                    max={"99999"}
+                    onChange={(e) => setValorTransferencia(e.target.value)}
+                  />
                 </div>
               </div>
-              <button onClick={() => handleIsOpen()}>Tranferir</button>
+              <button
+                onClick={() => {
+                  transferir();
+                }}
+              >
+                Tranferir
+              </button>
             </div>
           </div>
           <div className={styles.verTransferencia}>
@@ -236,16 +321,40 @@ export function Dashboard() {
                     <td className={styles.transacaoValor}>R$ 18,90</td>
                   </tr>
                   <tr>
-                    <td>Fulano da Silva</td>
-                    <td>Bla bla bla</td>
-                    <td>17/11/2022</td>
-                    <td className={styles.transacaoValor}>R$ 18,90</td>
+                    <td>Kevin Alves</td>
+                    <td>Seu dinheiro aqui</td>
+                    <td>16/11/2022</td>
+                    <td className={styles.transacaoValor}>R$ 6,99</td>
                   </tr>
                   <tr>
-                    <td>Fulano da Silva</td>
-                    <td>Bla bla bla</td>
-                    <td>17/11/2022</td>
-                    <td className={styles.transacaoValor}>R$ 18,90</td>
+                    <td>Ednaldo Pereira</td>
+                    <td>Opaaaa</td>
+                    <td>15/11/2022</td>
+                    <td className={styles.transacaoValorNegativo}>R$ 36,00</td>
+                  </tr>
+                  <tr>
+                    <td>Nathalia da Rocha</td>
+                    <td>Predicate</td>
+                    <td>14/11/2022</td>
+                    <td className={styles.transacaoValorNegativo}>R$ 412,23</td>
+                  </tr>
+                  <tr>
+                    <td>Vyviane Santos</td>
+                    <td>Dinheiro do teu pai</td>
+                    <td>14/11/2022</td>
+                    <td className={styles.transacaoValor}>R$ 100,00</td>
+                  </tr>
+                  <tr>
+                    <td>Mariana Souza</td>
+                    <td>conta um dois tres</td>
+                    <td>13/11/2022</td>
+                    <td className={styles.transacaoValorNegativo}>R$ 130,00</td>
+                  </tr>
+                  <tr>
+                    <td>Zé</td>
+                    <td>Mano do VBA</td>
+                    <td>13/11/2022</td>
+                    <td className={styles.transacaoValor}>R$ 1,00</td>
                   </tr>
                 </tbody>
               </table>
